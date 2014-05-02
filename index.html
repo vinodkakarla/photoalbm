@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Photo Album Lite</title>
+<script type="text/javascript" src="js/model.js"></script>
+<script type="text/javascript" src="js/view.js"></script>
+<script type="text/javascript" src="js/controller.js"></script>
+<script type="text/javascript">
+  window.onload = function(){
+	var controller = new Controller();
+	controller.loadView();
+  }
+</script>
+</head>
+<body>
+	<div>
+		<select id="list" class="form-control" size="10"></select>
+		<div>
+			<button id="plusBtn">+</button>
+			<button id="minusBtn">-</button>
+		</div>
+	</div>
+	<div id="mainImage">
+		<img/>
+	</div>
+</body>
+</html>
