@@ -30,7 +30,7 @@ Controller.prototype = {
 	addButtonEvent : function(modelObj, view) {
 		var addButton = document.getElementById("plusBtn");
 		addButton.addEventListener("click", function(evt) {
-			var item = window.prompt('Please provide image path:', '');
+			var item = window.prompt('Please provide image URL:', '');
 	        if (item) {
 				var fileName = fetchFileName(item);
 	            modelObj.attach(fileName, item);
@@ -42,7 +42,9 @@ Controller.prototype = {
 		var removeButton = document.getElementById("minusBtn");
 		removeButton.addEventListener("click", function(evt) {
 			var selectList = document.getElementById("list");
-	        if (selectList.selectedIndex >= 0) {
+			if (selectList.selectedIndex == -1) {
+				alert("No Image selected. Please select one.");
+			} else if (selectList.selectedIndex >= 0) {
 				var strUser = selectList.options[selectList.selectedIndex].value;
 	            modelObj.remove(strUser);
 	    		view.rebuildList();
